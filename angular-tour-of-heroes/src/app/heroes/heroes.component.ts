@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Hero } from '../_models/hero';
+import { User } from '../_models/user';
 import { HeroService } from '../_services/hero.service';
+import { LoginService } from '../_services/login.service';
 
 @Component({
   selector: 'app-heroes',
@@ -10,11 +13,20 @@ import { HeroService } from '../_services/hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  user : User;
 
-  constructor(private heroService: HeroService) { }
+  constructor(
+    private heroService: HeroService,
+    private router: Router,
+    private loginService : LoginService) {
+      this.loginService.currentUser.subscribe(x => this.user = x);
+    }
 
   ngOnInit() {
     this.getHeroes();
+    if(this.user.profile === 'reader'){
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   getHeroes(): void {

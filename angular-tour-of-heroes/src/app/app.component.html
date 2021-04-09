@@ -1,11 +1,11 @@
 <h1>{{title}}</h1>
 
 <div *ngIf="user">
-  <h2>{{user.firstName}} {{user.lastName}}</h2>
+  <h2>{{user.firstName}} {{user.lastName}} ({{user.profile}})</h2>
 
   <button class="deconect" (click)="logout();">Deconnection</button>
 
-  <nav>
+  <nav *ngIf="user.profile === 'admin' || user.profile === 'writer'">
     <a routerLink="/heroes">Heroes</a>
     <a routerLink="/dashboard">Dashboard</a>
   </nav>

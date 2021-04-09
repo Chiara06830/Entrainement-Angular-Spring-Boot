@@ -6,9 +6,17 @@
   <div><span>id: </span>{{hero.id}}</div>
   <div>
     <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    <div *ngIf="user.profile === 'admin' || user.profile === 'writer'; else elseBlock">
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+    <ng-template #elseBlock>
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" [readonly]="true">
+    </ng-template>
   </div>
 
-  <button (click)="save()">save</button>
+  <button
+    *ngIf = "user.profile === 'admin' || user.profile === 'writer'"
+    (click)="save()"
+  >save</button>
 
 </div>

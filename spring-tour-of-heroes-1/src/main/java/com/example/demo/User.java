@@ -14,6 +14,7 @@ public class User {
 	private String password;
 	private String lastName;
 	private String firstName;
+	private String profile;
 	
 	public User() {
 		super();
@@ -57,5 +58,13 @@ public class User {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
 	}
 }
