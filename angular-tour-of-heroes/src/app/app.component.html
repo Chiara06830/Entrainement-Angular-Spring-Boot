@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+
+<div *ngIf="loginService.user">
+  <h2>{{loginService.user.firstName}} {{loginService.user.lastName}}</h2>
+
+  <nav>
+    <a routerLink="/heroes">Heroes</a>
+    <a routerLink="/dashboard">Dashboard</a>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>
+<app-messages></app-messages>
