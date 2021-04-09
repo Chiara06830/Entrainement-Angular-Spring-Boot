@@ -1,0 +1,8 @@
+<p>Username :</p>
+<input for="userName" #userName />
+<p>Password :</p>
+<input for="password" #password type="password"/><br/>
+
+<button class="login_button" (click)="connect(userName.value, password.value); ">
+  Connection
+</button>
