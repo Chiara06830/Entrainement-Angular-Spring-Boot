@@ -51,7 +51,8 @@ export class LoginService {
 
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
-      alert('Bad username or password');
+      if(error.status === 404)
+        alert('Bad username or password');
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
