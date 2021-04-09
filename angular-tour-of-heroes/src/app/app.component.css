@@ -20,3 +20,8 @@ nav a:hover {
 nav a.active {
   background-color: black;
 }
+
+.deconect{
+  margin-top: -100px;
+  float: right;
+}

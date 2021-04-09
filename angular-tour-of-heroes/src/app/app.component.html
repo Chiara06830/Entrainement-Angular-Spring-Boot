@@ -1,7 +1,9 @@
 <h1>{{title}}</h1>
 
-<div *ngIf="loginService.user">
-  <h2>{{loginService.user.firstName}} {{loginService.user.lastName}}</h2>
+<div *ngIf="user">
+  <h2>{{user.firstName}} {{user.lastName}}</h2>
+
+  <button class="deconect" (click)="logout();">Deconnection</button>
 
   <nav>
     <a routerLink="/heroes">Heroes</a>
